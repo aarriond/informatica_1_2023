@@ -11,7 +11,7 @@
 
 int main (){
 
-printf ("Hola mundo!\n");
+printf ("Hola mundo! Probando git\n");
 
 return 0;
 
