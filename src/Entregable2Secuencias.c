@@ -9,7 +9,7 @@ int main (){
 
     int carta1, carta2, carta3, palo1, palo2, palo3;
     int sumatoria = 0;
-    
+
     printf ("Ingrese valor de su primera carta: 1,2,3,4,5,6,7,10,11,12\n");
     scanf("%d", &carta1);
     if (carta1 > 12){
@@ -48,7 +48,7 @@ int main (){
     }
     printf ("Ingrese valor de su tercera carta: 1,2,3,4,5,6,7,10,11,12\n");
     scanf("%d", &carta3);
-            if (carta3 > 12){
+    if (carta3 > 12){
         printf ("Carta inválida\n");
         return 0;
     } else if (carta3 == 8){
@@ -60,7 +60,7 @@ int main (){
     }
     printf ("Ingrese palo de su tercera carta 1 espadas 2 basto 3 copa 4 oro\n");
     scanf("%d", &palo3);
-            if (palo3 > 4){
+    if (palo3 > 4){
         printf ("Palo inválida\n");
         return 0;
     }
@@ -71,16 +71,16 @@ int main (){
         } else {
             sumatoria = carta1 + carta2 + 20;
             printf ("Envido: %d puntos\n", sumatoria);
-            }
-        } else if (palo1 == palo3){
-            sumatoria = carta1 + carta3 + 20;
-            printf ("Envido: %d puntos\n", sumatoria);
-        } else if (palo2 == palo3){
-            sumatoria = carta2 + carta3 + 20;
-            printf ("Envido: %d puntos\n", sumatoria);
-        } else {
-            printf ("Todas las cartas son de distinto palo\n");
         }
-           
+    } else if (palo1 == palo3){
+        sumatoria = carta1 + carta3 + 20;
+        printf ("Envido: %d puntos\n", sumatoria);
+    } else if (palo2 == palo3){
+        sumatoria = carta2 + carta3 + 20;
+        printf ("Envido: %d puntos\n", sumatoria);
+    } else {
+        printf ("Todas las cartas son de distinto palo\n");
+    }
+
     return 0;
 }
