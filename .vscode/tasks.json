@@ -9,7 +9,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/../ejecutables/${fileBasenameNoExtension}.out"
+                "${fileDirname}/../ejecutables/${fileBasenameNoExtension}.out",
+                "-lm"
             ],
             "options": {
                 "cwd": "${fileDirname}"
