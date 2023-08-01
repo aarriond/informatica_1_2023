@@ -30,6 +30,6 @@ void imprimirNumerBaseNComoString(char *);
 //Parte 5
 int desplazar_letras (char*,char *);
 void desencriptar_texto (char*,char*,int);
-void Encriptar_Numeros (char*,char*);
-void Desencriptar_numero (char*, char*);
+void encriptar_Numeros (char*,char*);
+void desencriptar_numero (char*, char*);
 int es_encriptable (char *);

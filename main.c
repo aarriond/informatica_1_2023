@@ -137,7 +137,7 @@ int main (void){
                 case 2:
                     float var1;
                     printf("Ingrese un número real: \n");
-                    scanf("%f", &arg1);
+                    scanf("%f", &var1);
                     removerEspacios(&var1);
                     break;
                 case 3:
