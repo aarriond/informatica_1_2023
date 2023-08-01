@@ -161,7 +161,7 @@ void imprimirNumeroEnBases(int numero){
     int n = numero;
     int array1[50];
     int array2[50];
-    int array3[50];
+    char array3[50];
     int i = 0;
     //bin
     while(n>0){
@@ -201,7 +201,29 @@ void imprimirNumeroEnBases(int numero){
 
     //hexa
         while(n>0){
-        array3[i] = n % 16;
+        switch (n % 2){
+            case 10:
+                array3[i] = 'A';
+                break;
+            case 11:
+                array3[i] = 'B';
+                break;
+            case 12:
+                array3[i] = 'C';
+                break;
+            case 13:
+                array3[i] = 'D';
+                break;
+            case 14:
+                array3[i] = 'E';
+                break;
+            case 15:
+                array3[i] = 'F';
+                break;
+            default:
+                array3[i] = (char)(n % 16);
+                break;
+        }
         printf ("array: %d", array3[i]);
         n = n / 16;
         printf ("array numero: %d", n);
@@ -211,6 +233,6 @@ void imprimirNumeroEnBases(int numero){
     for (size_t t = 0; t <= i; ++t)
     {
 
-        printf("Hexa: %d",array3[i-t]);
+        printf("Hexa: %s",array3);
     }
 }
