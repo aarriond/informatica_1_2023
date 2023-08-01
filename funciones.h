@@ -9,21 +9,21 @@ void devolverMenor(float *);
 void copiarSoloPrimos(int *, int *);
 
 //Parte 2
-invertirString(arg1, arg2, arg3);
-removerEspacios(&var1);
-convertirAMayusculas(array1);
-convertirAMinusculas(array1);
-convertirACamelCase(array1);
-encontrarCaracter(array1);
-removerCaracter(array1);
-desplazarNPosiciones(array1, array2);
+char * invertirString(char *);
+char * removerEspacios(char *);
+char * convertirAMayusculas(char *);
+char * convertirAMinusculas(char *);
+char * convertirACamelCase(char *);
+void encontrarCaracter(char *);
+char * removerCaracter(char *);
+char * desplazarNPosiciones(char *, char *);
 
 //Parte 3
-devolverStringBinarioComoNumero(arg1, arg2, arg3);
-devolverStringOctalComoNumero(&var1);
-devolverStringHexaComoNumero(array1);
-imprimirNumeroEnBases(array1);
-imprimirNumerBaseNComoString(array1);
+int devolverStringBinarioComoNumero(char *);
+int devolverStringOctalComoNumero(char *);
+int devolverStringHexaComoNumero(char *);
+void imprimirNumeroEnBases(int);
+void imprimirNumerBaseNComoString(char *);
 
 //Parte 4
 
