@@ -14,10 +14,9 @@ char * removerEspacios(char *);
 char * convertirAMayusculas(char *);
 char * convertirAMinusculas(char *);
 char * convertirACamelCase(char *);
-void encontrarCaracter(char *);
-char * removerCaracter(char *);
-char * desplazarNPosiciones(char *, char *);
-
+int encontrarCaracter(char *,char);
+char * removerCaracter(char *,char);
+char * desplazarNPosiciones(char *,char *,int);
 //Parte 3
 long long int devolverStringBinarioComoNumero(char *);
 long long int devolverStringOctalComoNumero(char *);
