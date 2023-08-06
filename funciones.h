@@ -19,11 +19,11 @@ char * removerCaracter(char *);
 char * desplazarNPosiciones(char *, char *);
 
 //Parte 3
-int devolverStringBinarioComoNumero(char *);
-int devolverStringOctalComoNumero(char *);
-int devolverStringHexaComoNumero(char *);
+long long int devolverStringBinarioComoNumero(char *);
+long long int devolverStringOctalComoNumero(char *);
+long long int devolverStringHexaComoNumero(char *);
 void imprimirNumeroEnBases(int);
-void imprimirNumerBaseNComoString(char *);
+void imprimirNumeroEnXBase(long long int,char *,unsigned int);
 
 //Parte 4
 
