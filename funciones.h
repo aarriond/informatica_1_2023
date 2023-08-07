@@ -1,3 +1,17 @@
+struct vendedor
+{
+    unsigned int tiendaId;
+    unsigned int vendedorId;
+    float comisionAcumulada;
+};
+
+struct producto
+{
+    char categoria[3];
+    float precio;
+    unsigned int cantidadVendida;
+};
+
 //Parte 1
 int devolverNumeroAleatorio(int, int, unsigned int);
 void imprimeFloatByteAByte(float *);
@@ -26,7 +40,7 @@ void imprimirNumeroEnBases(int);
 void imprimirNumeroEnXBase(long long int,char *,unsigned int);
 
 //Parte 4
-// void ingresarVenta(struct vendedor **,unsigned int **);
+void ingresarVenta(struct vendedor **,struct producto **,int *);
 // void ventasPorCategoria();
 // void comisionesPorVendedor();
 

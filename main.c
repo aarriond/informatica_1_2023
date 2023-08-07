@@ -4,20 +4,6 @@
 #include"funciones.h"
 #define ARRAY_MAX 50
 
-struct vendedor
-{
-    unsigned int tiendaId;
-    unsigned int vendedorId;
-    float comisionAcumulada;
-};
-
-struct producto
-{
-    char categoria[3];
-    float precio;
-    unsigned int cantidadVendida;
-};
-
 int main (void){
     
     //defino variables
@@ -42,6 +28,11 @@ int main (void){
     char stringSalida[ARRAY_MAX];
     int salidaint = 0;
     int contadorArrayInt = 0;
+    struct vendedor *ptrVentas = NULL;
+    struct producto *ptrProductos = NULL;
+    int cantidadVentas = 0;
+    int *ptrCantidadVentas = &cantidadVentas;
+    size_t tamRealloc = 0;
 
     while (opcion != 0){
         printf("Ingrese una opción: \n");
@@ -289,7 +280,61 @@ int main (void){
             case 4:
                 system("clear");
                 printf("Enunciado A\n");
-                //menu control de ventas;
+                opcion = 0;
+                printf("%p\n",ptrVentas);
+                while (opcion != 4)
+                {
+                    printf("Ingrese opciones:\n");
+                    printf("1 - facturar nueva venta\n");
+                    printf("2 - ventas totales por categoría\n");
+                    printf("3 - comisiones acumuladas por vendedor\n");
+                    printf("4 - salir al menú principal\n");
+                    scanf("%u", &opcion);
+                    printf("\n");
+                    switch (opcion)
+                    {
+                    case 1:
+                        printf("Menú facturación\n");
+                        printf("cantidad de ventas en el main: %d\n",cantidadVentas);
+                        if(ptrVentas == NULL){
+                            ptrVentas = (struct vendedor *)malloc(sizeof(*ptrVentas));
+                            (&ptrVentas)[0] = (struct vendedor *)malloc(sizeof(*ptrVentas));
+                            ptrProductos= (struct producto *)malloc(sizeof(*ptrProductos));
+                            (&ptrProductos)[0] = (struct producto *)malloc(sizeof(*ptrProductos));
+                            if(ptrVentas != NULL&&ptrProductos != NULL){
+                                ingresarVenta(&ptrVentas,&ptrProductos,ptrCantidadVentas);
+                            }else{
+                                printf("no se reasignó la memoria\n");
+                            }
+                        }else{
+                            ptrVentas = (struct vendedor *)realloc(ptrVentas,(cantidadVentas+1)*sizeof(*ptrVentas));
+                            (&ptrVentas)[cantidadVentas] = (struct vendedor *)realloc(ptrVentas,(cantidadVentas+1)*sizeof(*ptrVentas));
+                            ptrProductos = (struct producto *)realloc(ptrProductos,(cantidadVentas+1)*sizeof(*ptrProductos));
+                            (&ptrProductos)[cantidadVentas] = (struct producto *)realloc(ptrProductos,(cantidadVentas+1)*sizeof(*ptrProductos));                            
+                            if(ptrVentas != NULL&&ptrProductos != NULL){
+                                ingresarVenta(&ptrVentas,&ptrProductos,ptrCantidadVentas);
+                            }else{
+                                printf("no se reasignó la memoria\n");
+                            }
+                        }
+                        break;
+                    case 2:
+                        printf("Ventas totales por categoría\n");
+                        // ventasPorCategoria();
+                        break;
+                    case 3:
+                        printf("Comisiones acumuladas por vendedor\n");
+                        // comisionesPorVendedor();
+                        break;
+                    case 4:
+                        // free(ptrVentas);
+                        break;
+                    default:
+                        printf("Opción no válida\n");
+                        break;
+                    }                    
+                }
+                free(ptrVentas);
                 break;
             case 5:
                 system("clear");
