@@ -3,6 +3,7 @@
 #include<string.h>
 #include<time.h>
 #include<math.h>
+#include "../funciones.h"
 
 long long int devolverStringBinarioComoNumero(char* stringEntrada){
 

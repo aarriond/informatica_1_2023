@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
+#include "../funciones.h"
 
 int desplazar_letras (char* stringEntrada,char* stringSalida){
     

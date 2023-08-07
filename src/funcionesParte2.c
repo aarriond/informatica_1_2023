@@ -3,6 +3,7 @@
 #include<string.h>
 #include<time.h>
 #include<math.h>
+#include "../funciones.h"
 
 char * invertirString(char *stringEntrada){
 
@@ -106,7 +107,7 @@ char * desplazarNPosiciones(char *stringEntrada, char *stringSalida, int desplaz
         if ((stringEntrada[i]+desplazamiento)<=126 && (stringEntrada[i]+desplazamiento)>=32){
                 stringSalida[i] = (stringEntrada[i]+desplazamiento);
         }else{
-                printf("Caracter en posición %d no es imprimible, se salteará\n", i+1);
+                printf("Caracter en posición %lu no es imprimible, se salteará\n", i+1);
         }
     }
     return stringSalida;

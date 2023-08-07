@@ -6,11 +6,17 @@
             "command": "/usr/bin/gcc",
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
                 "-o",
-                "${fileDirname}/../ejecutables/${fileBasenameNoExtension}.out",
-                "-lm"
+                "${fileDirname}/ejecutables/menu",
+                "${fileDirname}/main.c",
+                "${fileDirname}/src/funcionesParte1.c",
+                "${fileDirname}/src/funcionesParte2.c",
+                "${fileDirname}/src/funcionesParte3.c",
+                "${fileDirname}/src/funcionesParte4.c",
+                "${fileDirname}/src/funcionesParte5.c",
+                "${fileDirname}/src/auxiliares.c",
+                "-lm",
+
             ],
             "options": {
                 "cwd": "${fileDirname}"
