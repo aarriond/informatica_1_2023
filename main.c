@@ -28,11 +28,11 @@ int main (void){
     char stringSalida[ARRAY_MAX];
     int salidaint = 0;
     int contadorArrayInt = 0;
-    struct vendedor *ptrVentas = NULL;
-    struct producto *ptrProductos = NULL;
     int cantidadVentas = 0;
     int *ptrCantidadVentas = &cantidadVentas;
-    size_t tamRealloc = 0;
+    struct vendedor **ptrVentas = NULL;
+    struct producto **ptrProductos = NULL;
+
 
     while (opcion != 0){
         printf("Ingrese una opción: \n");
@@ -278,10 +278,9 @@ int main (void){
                 }
                 break;
             case 4:
-                system("clear");
+                // system("clear");
                 printf("Enunciado A\n");
                 opcion = 0;
-                printf("%p\n",ptrVentas);
                 while (opcion != 4)
                 {
                     printf("Ingrese opciones:\n");
@@ -295,26 +294,25 @@ int main (void){
                     {
                     case 1:
                         printf("Menú facturación\n");
-                        printf("cantidad de ventas en el main: %d\n",cantidadVentas);
                         if(ptrVentas == NULL){
-                            ptrVentas = (struct vendedor *)malloc(sizeof(*ptrVentas));
-                            (&ptrVentas)[0] = (struct vendedor *)malloc(sizeof(*ptrVentas));
-                            ptrProductos= (struct producto *)malloc(sizeof(*ptrProductos));
-                            (&ptrProductos)[0] = (struct producto *)malloc(sizeof(*ptrProductos));
+                            ptrVentas = (struct vendedor **)malloc(sizeof(struct vendedor *));
+                            *ptrVentas = (struct vendedor *)malloc(sizeof(struct vendedor));
+                            ptrProductos = (struct producto **)malloc(sizeof(struct producto *));
+                            *ptrProductos = (struct producto *)malloc(sizeof(struct producto));
                             if(ptrVentas != NULL&&ptrProductos != NULL){
-                                ingresarVenta(&ptrVentas,&ptrProductos,ptrCantidadVentas);
+                                ingresarVenta(ptrVentas,ptrProductos,ptrCantidadVentas);
                             }else{
-                                printf("no se reasignó la memoria\n");
+                                printf("No se reasignó la memoria - reintentar o salir.\n");
                             }
                         }else{
-                            ptrVentas = (struct vendedor *)realloc(ptrVentas,(cantidadVentas+1)*sizeof(*ptrVentas));
-                            (&ptrVentas)[cantidadVentas] = (struct vendedor *)realloc(ptrVentas,(cantidadVentas+1)*sizeof(*ptrVentas));
-                            ptrProductos = (struct producto *)realloc(ptrProductos,(cantidadVentas+1)*sizeof(*ptrProductos));
-                            (&ptrProductos)[cantidadVentas] = (struct producto *)realloc(ptrProductos,(cantidadVentas+1)*sizeof(*ptrProductos));                            
+                            ptrVentas = (struct vendedor **)realloc(ptrVentas,(cantidadVentas+1)*sizeof(struct vendedor *));
+                            *(ptrVentas+cantidadVentas) = (struct vendedor *)malloc(sizeof(struct vendedor));
+                            ptrProductos = (struct producto **)realloc(ptrProductos,(cantidadVentas+1)*sizeof(struct producto *));
+                            *(ptrProductos+cantidadVentas) = (struct producto *)malloc(sizeof(struct producto));
                             if(ptrVentas != NULL&&ptrProductos != NULL){
-                                ingresarVenta(&ptrVentas,&ptrProductos,ptrCantidadVentas);
+                                ingresarVenta(ptrVentas,ptrProductos,ptrCantidadVentas);
                             }else{
-                                printf("no se reasignó la memoria\n");
+                                printf("No se reasignó la memoria - reintentar o salir.\n");
                             }
                         }
                         break;
@@ -324,17 +322,18 @@ int main (void){
                         break;
                     case 3:
                         printf("Comisiones acumuladas por vendedor\n");
-                        // comisionesPorVendedor();
+                        // comisionesPorVendedor(ptrVentas);
                         break;
                     case 4:
-                        // free(ptrVentas);
                         break;
                     default:
                         printf("Opción no válida\n");
                         break;
                     }                    
                 }
+                //hacer el free de los malloc de struct vendedor y struct producto antes de liberar el puntero de los arrays como está abajo
                 free(ptrVentas);
+                free(ptrProductos);
                 break;
             case 5:
                 system("clear");
