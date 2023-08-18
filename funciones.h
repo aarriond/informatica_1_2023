@@ -17,7 +17,7 @@ int devolverNumeroAleatorio(int, int, unsigned int);
 void imprimeFloatByteAByte(float *);
 float devolverMediana(float *,int);
 float devolverMedia(float *,int);
-float devolverModa(float *,int);
+// float devolverModa(float *,int);
 float devolverMayor(float *,int);
 float devolverMenor(float *,int);
 void copiarSoloPrimos(int *, int *,int);
@@ -40,9 +40,9 @@ void imprimirNumeroEnBases(int);
 void imprimirNumeroEnXBase(long long int,char *,unsigned int);
 
 //Parte 4
-void ingresarVenta(struct vendedor **,struct producto **,int *);
 // void ventasPorCategoria();
-// void comisionesPorVendedor();
+void ingresarVenta(struct vendedor **,struct producto **,int *);
+void comisionesPorVendedor(struct vendedor *);
 
 //Parte 5
 int desplazar_letras (char*,char *);

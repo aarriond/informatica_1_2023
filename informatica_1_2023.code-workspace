@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "informatica_1_2023",
+			"path": "."
+		},
+		{
+			"path": "../pruebas"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"string.h": "c"
+		}
+	}
+}

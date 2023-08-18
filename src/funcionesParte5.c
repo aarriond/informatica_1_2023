@@ -96,8 +96,8 @@ void encriptar_numeros (char* stringEntrada, char* stringSalida){
 
     if(strlen(stringEntrada) < 18){
         //convertir string a int
-        for (i; (stringEntrada[i] != '\0' && stringEntrada[i] != '\n'); i++) {
-                n = n * 10 + (stringEntrada[i] - 48);
+        for (i; (stringEntrada[i] != '\0' && stringEntrada[i] != '\n'); i++){
+                n = (n * 10) + (stringEntrada[i] - 48);
         }
 
         printf("numero string a int sin cifrar: %lld\n", n);
@@ -112,7 +112,7 @@ void encriptar_numeros (char* stringEntrada, char* stringSalida){
         }
 
         //invertir string
-        for(k; k <= (i-1)/2; k++)
+        for(k = 0; k <= (i-1)/2; k++)
             {
                 aux = stringSalida[k];
                 stringSalida[k] = stringSalida[i-1-k];

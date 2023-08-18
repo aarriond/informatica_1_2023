@@ -16,7 +16,7 @@
                 "${fileDirname}/src/funcionesParte5.c",
                 "${fileDirname}/src/auxiliares.c",
                 "-lm",
-
+                "-g"
             ],
             "options": {
                 "cwd": "${fileDirname}"
